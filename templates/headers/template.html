@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head itemscope itemtype="http://schema.org/WebSite">
+
+	[%load_template file:'headers/includes/head.template.html'/%]
+	<link rel="preload" href="[%ntheme_asset%]css/app.css[%/ntheme_asset%]" as="style">
+	<link rel="preload" href="[%ntheme_asset%]css/skeletal-style.css[%/ntheme_asset%]" as="style">
+	<link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/app.css[%/ntheme_asset%]" media="all"/>
+	<link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/style.css[%/ntheme_asset%]" media="all"/>
+	<link href="https://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+
+<!-- Global site tag (gtag.js) - Google Ads: 936039227 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-936039227"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-936039227');
+</script>
+
+
+<!-- Event snippet for Conversion conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-936039227/u7ZoCJ7Q95ABELumq74D',
+      'value': 0.0,
+      'currency': 'USD',
+      'transaction_id': ''
+  });
+</script>
+
+
+
+<!--New Tag Manager cod placement as requested by Mat - start codes-->
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"26043269"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+<!--New Tag Manager cod placement as requested by Mat - end codes-->
+
+
+</head>
+
+[%site_value id:'footer_javascript'%]
+<script>
+    // Same/next day delivery countdown feature
+
+    // Global time and date variables required for the functions.
+    var currentHour;
+    var currentDate;
+    var dayText;
+
+    // Function required for the same/next day delivery countdown, and also the "sale ends in" countdown on the product page.
+    function getDates(type) {
+        serverTime = "[%format type:'date' format:'#Y-#m-#d-#h-#i-#s-#W'%]now[%/format%]";
+        serverDate = serverTime.split("-");
+        year = serverDate[0];
+        monthNames = [null, "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        month = monthNames[(serverDate[1])];
+        dayNumber = serverDate[2];
+        dayText = serverDate[6];
+        hour = serverDate[3];
+        time = serverDate[3]+":"+serverDate[4]+":"+serverDate[5];
+
+        // Format dates correctly for Jquery countdown.
+        // "fullDateAndTime" is an additional parameter to ensure that the countdown function uses the server time, rather than the client time.
+        currentDate = serverDate[0]+"/"+serverDate[1]+"/"+serverDate[2];
+        fullDateAndTime = month+" "+dayNumber+","+time;
+
+        if (type == 'promo') {
+            // Get formatted promo date
+            promoEndDateFull = "[%format type:'date' format:'#Y-#m-#d-#h-#i-#s-#W'%][@promo_end@][%/format%]";
+            date = promoEndDateFull.split("-");
+            time = date[3]+":"+date[4]+":"+date[5];
+            dateFormatted = date[0]+"/"+date[1]+"/"+date[2]+" "+time;
+        }
+    };
+    getDates();
+
+    $(document).ready(function(){
+        // Display the same day countdown timer
+        function sameDayCountdown() {
+            $('#countdown').countdown(currentDate+' [@config:countdown_finish_hour_same_day@]:00:00', function(event){
+                $(this).html(event.strftime('<p>Order in <span>%H:%M:%S</span> for same day delivery!</p><p>[@config:countdown_text@]</p>'));
+            }, fullDateAndTime);
+        }
+
+        // Display the next day countdown timer
+        function nextDayCountdown() {
+            $('#countdown').countdown(currentDate+' [@config:countdown_finish_hour_next_day@]:00:00', function(event){
+                $(this).html(event.strftime('<p>Order in <span>%H:%M:%S</span> for next day delivery!</p><p>[@config:countdown_text@]</p>'));
+            }, fullDateAndTime);
+        }
+
+        /* Show the countdown timers, based on which they offer. The options are pulled from a custom config, with the following available:
+           - same_and_next (shows both the same day delivery, and next day delivery countdowns)
+           - same (shows same day delivery countdown only)
+           - next (shows next day delivery countdown only)
+
+           The countdown timer will only show on weekdays, and not weekends.
+        */
+        if(dayText != 'Saturday' && dayText != 'Sunday') {
+            switch ('[@config:delivery_countdown_type@]') {
+                case 'same_and_next':
+                    finishHourSameDay = parseInt('[@config:countdown_finish_hour_same_day@]');
+                    finishHourNextDay = parseInt('[@config:countdown_finish_hour_next_day@]');
+                    if (hour < finishHourSameDay) {
+                        sameDayCountdown();
+                    }
+                    else if (hour < finishHourNextDay) {
+                        nextDayCountdown();
+                    };
+                    break;
+                case 'same':
+                    sameDayCountdown();
+                    break;
+                case 'next':
+                    nextDayCountdown();
+                    break;
+            }
+        }
+    });
+</script>
+[%/site_value%]
+
+
+<body id="n_[@config:current_page_type@]" class="n_[@CONFIG:TEMPLATELANG@]">
+<a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<div class="container-fluid" style="background-color: rgb(0, 111, 245);">
+
+<header class="container py-3" aria-label="Header container" style="background-color: rgb(0, 111, 245); border-radius: 3px; padding-bottom: -5px; margin-bottom: -10px; box-shadow: 1px; border: 1px; border-style: solid; border-color: #345487;">
+
+<div class="row">
+		
+<div class="col-xs-12 col-sm-3 d-none d-md-block">
+		<p style="color: white; text-align: left; font-family: 'Oswald', sans-serif;"><i class="far fa-envelope font-size-2px">&nbsp;<strong><a href="mailto:sales@jonoandjohno.com.au" style="color: white;">[@config:company_email@]</a></strong></i></p>
+</div>
+
+<div class="col-xs-12 col-sm-2 d-none d-md-block">
+		<p style="color: white; text-align: left; font-family: 'Oswald', sans-serif;"><i class="fas fa-phone-volume font-size-2px">&nbsp;<a href="tel:+61353030263" style="color: white;">[@config:company_phone@]</a></i></p>
+</div>	
+
+<div class="col-xs-12 col-sm-2 d-none d-md-block">
+		<p style="color: white; text-align: right; font-family: 'Oswald', sans-serif;"><a href="https://www.chainsawspares.com.au/_myacct/#orders"><span style="color:#F0FFF0;"><i class="fas fa-box font-size-2px">&nbsp;Track My Orders</i></a></p>
+</div>
+
+<div class="col-xs-12 col-sm-3 d-none d-md-block"> 
+<p style="text-align: right;">
+
+<a href="http://www.chainsawspares.com.au/page/chainsaw-guide/">
+<span style="color: white; text-align: left; font-family: 'Oswald', sans-serif;">
+<i class="fas fa-book font-size-2px">&nbsp;Guide</i></a>
+
+<span style="color:#FFFFE0;"></span>
+<a href="http://www.chainsawspares.com.au/page/how-to-videos/chainsaw-chain-sharpening/">
+<span style="color: white; text-align: left; font-family: 'Oswald', sans-serif;"><i class="fas fa-video font-size-2px">&nbsp;Videos</i></a>
+
+<span style="color:#FFFFE0;"></span>
+<a href="http://www.chainsawspares.com.au/contact-us/">
+<span style="color: white; text-align: left;"><i class="fas fa-id-badge font-size-2px">&nbsp;Contact</i></a>
+</p>
+</div>
+
+<div class="col-xs-12 col-sm-2 d-none d-md-block"><p style="text-align: right;"><a href="https://www.chainsawspares.com.au/_myacct/login"><span style="color: white; text-align: left; font-family: 'Oswald', sans-serif;"><i class="fas fa-sign-in-alt font-size-2px">&nbsp;
+Login</i></a>&nbsp;&nbsp;<span style="color:#FFFFE0;"></span><a href="https://www.chainsawspares.com.au/_myacct/register"><span style="color: white; text-align: left; font-family: 'Oswald', sans-serif;"><i class="fas fa-user-plus font-size-2px">&nbsp;Register</i></a></p>
+</div>
+
+</div>
+
+
+<div class="row pb-2 align-items-center">
+<div class="col-7 col-sm-4 wrapper-logo text-sm-left">
+<a href="[@config:homeurl@]" title="[@config:company_name@]"><img class="logo" src="[@config:imageurl@]/website_logo.png?[@config:neto_css_version@]" alt="[@config:company_name@] logo"/></a>
+</div>
+<div class="col-5 col-sm-8 d-block d-md-none text-right">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+</button>
+<a class="navbar-toggler d-sm-inline-block d-md-none" href="[%url page:'checkout' type:'cart'/%]" aria-label="Shopping cart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i><span class="badge badge-pill badge-secondary" rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span></a>
+</div>
+		
+<div class="d-none d-md-block col-12 col-sm-8 col-md-4 col-lg-4">
+<div class="header-search pt-2 pt-md-0">
+
+<form name="productsearch" method="get" action="/" role="search" aria-label="Product search">
+<input type="hidden" name="rf" value="kw"/>
+<div class="input-group">
+<input class="form-control ajax_search" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
+<div class="input-group-append">
+<button type="submit" value="Search" class="btn btn-outline-secondary" aria-label="Search site"><i class="fa fa-search" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+</form>
+
+</div>
+</div>
+
+<div class="d-none d-md-block col-md-4 col-lg-4 text-right">
+<div id="header-cart" class="btn-group" role="group">
+<a href="[%url page:'checkout' type:'cart'/%]" class="btn btn-outline-secondary" id="cartcontentsheader" style="background-color: gray;">
+<i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="d-none d-lg-inline" >Shopping Cart</span> - <span rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</span> Items
+</a>
+<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Shopping cart dropdown"><span class="sr-only">Toggle Dropdown</span>
+</button>
+<ul class="dropdown-menu dropdown-menu-right float-right">
+<li class="box" id="neto-dropdown"><div class="body" id="cartcontents"></div>
+<div class="footer">
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</header>
+
+
+
+
+<div class="container" style="background-color: black; border-radius: 3px; padding-bottom: 0px; box-shadow: 1px;">
+<div class="row">
+<div class="col-md-12">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
+<div class="collapse navbar-collapse" id="navbarMainMenu" style="background-color: black; color: white; font-family: 'Oswald', sans-serif;">
+<form class="d-block d-md-none" name="productsearch" method="get" action="/" role="search" aria-label="Product search"><input type="hidden" name="rf" value="kw"/>
+<div class="input-group">
+<input class="form-control ajax_search" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search-xs" autocomplete="off" name="kw" type="search" aria-label="Input search"/>
+<div class="input-group-append"><button type="submit" value="Search" class="btn btn-outline-secondary" aria-label="Search site"><i class="fa fa-search" aria-hidden="true"></i></button>
+</div>
+</div>
+</form>
+	    
+<ul class="navbar-nav mr-auto" role="navigation" aria-label="Main menu">
+[%cache type:'menu' id:'header-content-menu'%]
+[%menu id:'web_header'%]
+[%param *level_1%]
+<li class="nav-item [%if [@next_level@]%] dropdown [%/if%] [%if [@css_class@]%] [@css_class@][%/if%]">
+<a href="[@url@]" class="nav-link [%if [@next_level@]%] dropdown-toggle[%/if%]" [%if [@next_level@]%]role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"[%/if%]>[@name@]</a>
+[%if [@next_level@]%]
+<ul class="dropdown-menu">
+[@next_level@]
+</ul>
+[%/if%]
+</li>
+[%/param%]
+[%param *level_2%]
+<li class="[%if [@next_level@]%] dropdown dropdown-hover [%/if%] [%if [@css_class@]%] [@css_class@][%/if%]"> <a href="[@url@]" class="nuhover dropdown-item"><i class="fas fa-window-minimize font-size-2px">&nbsp;[@name@]</i></a>
+[%if [@next_level@]%]
+<ul class="dropdown-menu dropdown-menu-horizontal">
+[@next_level@]
+</ul>
+[%/if%]
+</li>
+[%/param%]
+[%param *level_3%]
+<li class="[%if [@css_class@]%] [@css_class@][%/if%]">
+<a class="dropdown-item" href="[@url@]">[@name@]</i></a>[%/param%][%/menu%][%/ cache%]
+</ul>
+
+
+<ul class="navbar-nav navbar-right" role="navigation" aria-label="Accounts menu">
+<li class="nav-item dropdown">
+<a href="[%url page:'account'/%]" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Account dropdown" style="color: white; margin-top: 0px;"><i class="fas fa-user-circle font-size-2px">&nbsp;MY ACCOUNT</i></a>
+<ul class="dropdown-menu dropdown-menu-right" >
+<li><a class="dropdown-item" href="[%url page:'account'/%]"><i class="fas fa-home font-size-2px">&nbsp;Account Home</i></a></li>
+<li><a class="dropdown-item" href="[%url page:'account'/%]#orders"><i class="fas fa-box">&nbsp;Orders</i></a></li></li>
+[%if [@config:allow_user_quote@]%]
+<li><a class="dropdown-item" href="[%url page:'account'/%]#quotes"><i class="fas fa-quote-left font-size-2px">&nbsp;Quotes</i></a></li>
+[%/ if%]
+<li><a class="dropdown-item" href="[%url page:'account' type:'payrec'/%]"><i class="fas fa-file-invoice font-size-2px">&nbsp;Pay Invoices</i></a></li>
+<li><a class="dropdown-item" href="[%url page:'account' type:'favourites'/%]"><i class="fas fa-external-link-square-alt font-size-2px">&nbsp;Reorder</i></a></li>
+[%if [@config:show_wishlist@]%]
+<li><a class="dropdown-item" href="[%url page:'account' type:'wishlist'/%]"><i class="far fa-meh-blank font-size-2px">&nbsp;Wishlists</i></a></li>
+[%/if%]
+<li><a class="dropdown-item" href="[%url page:'account' type:'warranty'/%]"><i class="fab fa-centercode font-size-2px">&nbsp;Resolution Centre</i></a></li>
+<li><a class="dropdown-item" href="[%url page:'account' type:'edit_account'/%]"><i class="fas fa-info-circle font-size-2px">&nbsp;Edit My Details</i></a></li>
+<li><a class="dropdown-item" href="[%url page:'account' type:'edit_address'/%]"><i class="far fa-id-badge font-size-2px">&nbsp;Edit My Address Book</i></a></li>
+<li class="divider"><div class="dropdown-divider"></div></li>
+[%if [@user:username@]%]
+<li> <a class="dropdown-item" href="[%url page:'account' type:'edit_pwd'/%]"><i class="fas fa-unlock-alt">&nbsp;Change My Password</i></a> </li>
+<li> <a class="dropdown-item" href="[%url page:'account' type:'logout'/%]"><i class="fas fa-sign-out-alt font-size-2px">&nbsp;Log Out</i></a> </li>
+[%else%]
+<li> <a class="dropdown-item" href="[%url page:'account' type:'login'/%]" title="Login"><i class="fas fa-sign-in-alt font-size-2px">&nbsp;Login</i></a> </li>
+<li> <a class="dropdown-item" href="[%url page:'account' type:'register'/%]" title="Register"><i class="fas fa-user-plus font-size-2px">&nbsp;Register</i></a> </li>
+[%/if%]
+</ul>
+</li>
+</ul> 
+
+
+</div>
+
+</nav>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+<div id="main-content" class="container" role="main" style="background-color: #E5F3E5;">
+<div class="row">

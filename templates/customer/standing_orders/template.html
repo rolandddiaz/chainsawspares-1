@@ -1,0 +1,56 @@
+<div class="col-12">
+	<nav aria-label="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="[@config:home_url@]">Home</a></li>
+			<li class="breadcrumb-item"><a href="[%URL page:'account'%][%END URL%]">My account</a></li>
+			<li class="breadcrumb-item"><a href="[%url page:'account' type:'standing_orders'/%]">Standing orders</a></li>
+		</ol>
+	</nav>
+	<h1>Standing orders</h1>
+	<hr/>
+	[%thumb_list type:'standing_orders' limit:'20'%]
+		[%param filter_1%][%form id:'ord'/%][%/param%]
+		[%param filter_2%][%form id:'sts'/%][%/param%]
+		[%param header%]
+		<div class="row">
+				[%/param%]
+		[%param *body%]
+			<div class="col-md-4">
+				<div class="card [%if [@order_status@] like 'Stopped'%]bg-danger[%else%]bg-light[%/if%]">
+					<div class="card-header"><h3 class="card-title mb-0">Standing order #[@storder_id@]</h3></div>
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>Date Placed</th>
+								<td>[%format type:"date" default:"-" format:"#d #k #Y"%][@date_placed@][%/format%]</td>
+							</tr>
+								<th>Current Status</th>
+								<td nowrap>[@order_status@] [%if [@request_to_stop@] eq '1'%]<br /><span class="small text-danger">Requesting To Stop</span>[%/if%]</td>
+							</tr>
+								<th>Date Started</th>
+								<td>[%format type:"date" default:"-" format:"#d #k #Y"%][@date_start@][%/format%]</td>
+							</tr>
+								<th>Amount On Order</th>
+								<td>[%format type:"currency"%][@grand_total@][%/format%]</td>
+							</tr>
+								<th>Next Delivery</th>
+								<td>[%format type:"date" default:"-" format:"#d #k #Y"%][@date_next@][%/format%]</td>
+							</tr>
+								<th>Date Fulfilled</th>
+								<td>[%format type:"date" default:"-" format:"#d #k #Y"%][@date_fulfilled@][%/format%]</td>
+							</tr>
+						</tbody>
+					</table>
+						<a href="[%url page:'account' type:'standing_orders' id:'[@storder_id@]'/%]" class="btn btn-outline-secondary">View order</a>
+					</div>
+				</div>
+			</div>
+		[%/param%]
+		[%param *footer%]
+		</div>
+		[%/param%]
+		[%param *ifempty%]
+		<div class="alert alert-danger" role="alert"><a class="close" data-dismiss="alert">×</a>No Standing Orders Found.</div>
+		[%/param%]
+	[%/thumb_list%]
+</div>

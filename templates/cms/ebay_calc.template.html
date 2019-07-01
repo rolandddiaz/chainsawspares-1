@@ -1,0 +1,28 @@
+<div class="container" style="background-color: #0665b0;">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12   col-md-12  col-lg-12">
+			<div class="text-center"><img class="logo" src="[@config:imageurl@]/website_logo.png?[@config:neto_css_version@]" alt="[@config:company_name@]"/></div>
+			[%load_ajax_template id:'_shipping_calc' tmpl_sku:'[@form:sku@]' type:'content' template:'shipping_calc' preload:'1' tmpl_preview:'y'/%]
+			<p class="text-center"><a onclick="window.close(); return false;" href="#" style="color: white;">Return to Listing</a></p>
+			<p class="text-center" style="color: white;">Powered By: Chainsawspares.com.au</p>
+		</div>
+	</div>
+</div>
+[%cdn_asset html:'1' type:'js' library:'jquery' version:'1.11.3'%]jquery.min.js[%/cdn_asset%]
+[%cdn_asset html:'1' type:'js' library:'fancybox' version:'2.1.5'%]jquery.fancybox.pack.js[%/cdn_asset%]
+[%NETO_JS html:'1' id:'main' /%]
+[%cdn_asset html:'1' type:'js' library:'bootstrap' version:'3.3.6'%]bootstrap.min.js[%/cdn_asset%]
+<script type="text/javascript" src="[%ntheme_asset%]js/custom.js[%/ntheme_asset%]"></script>
+[%cdn_asset html:'1' type:'js' library:'jquery_ui' version:'1.11.1'%]js/jquery-ui-1.8.18.custom.min.js[%/cdn_asset%]
+[%SITE_VALUE id:'footer_javascript' type:'load'/%]
+<script>
+	$(document).keypress(function(e) {
+		if(e.which == 13) {
+			e.preventDefault()
+		}
+	});
+</script>
+<!-- Analytics -->
+[%tracking_code type:'Visitor' /%]
+<div class="npopup" style=""><a href="javascript:void(0);" class="npopup-btn-close"></a><div class="npopup-body"></div></div>
+<div class="nactivity"><i class="fa fa-spinner fa-spin fa-inverse fa-3x fa-fw"></i></div>

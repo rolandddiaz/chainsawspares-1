@@ -1,0 +1,50 @@
+[%load_template file:'cms/includes/sidebar.template.html'/%]
+[%breadcrumb%]
+	[%param *header%]
+		<nav aria-label="breadcrumb">
+		<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+			<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
+			</li>
+	[%/param%]
+	[%param *body%]
+		<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="[@url@]" itemprop="item"><span itemprop="name" style="font-size: 20%;">[@name@]</span></a>
+		</li>
+	[%/param%]
+	[%param *footer%]
+		</ul>
+		</nav>
+	[%/param%]
+[%/breadcrumb%]
+<h1>[@content_name@]</h1>
+<section class="n-responsive-content" aria-label="Short description">
+	[@content_short_description1@]
+	[@content_short_description2@]
+	[@content_short_description3@]
+</section>
+<section class="n-responsive-content" aria-label="Description">
+	[%parse%]
+		[@content_description1@]
+		[@content_description2@]
+		[@content_description3@]
+	[%/ parse%]
+</section>
+<hr aria-hidden="true"/>
+[%content_menu content_type:'category' sortby:'sortorder,name' show_empty:'1' limit:''%]
+	[%param header%]
+		<section class="row" aria-label="Categories">
+	[%/ param%]
+	[%param *level_1%]
+		<div class="col-6 col-sm-4 category-thumbnail" role="article" aria-label="[@name@] category">
+			<p class="h2"><a href="[@url@]">[@name@]</a></p>
+			<a href="[@url@]">
+				<img src="[%asset_url type:'category' id:'[@id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%END asset_url%]" class="img-fluid" alt="[@name@]" />
+			</a>
+		</div>
+	[%/ param%]
+	[%param footer%]
+		</section>
+	[%/ param%]
+[%/ content_menu%]
+</div>

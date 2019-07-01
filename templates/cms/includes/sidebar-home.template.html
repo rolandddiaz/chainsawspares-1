@@ -1,0 +1,38 @@
+<aside class="col-12 col-md-3 d-none d-lg-block" id="left-sidebar" style="background-color: rgb(255, 165, 0);">
+	<br/>
+	[%cache type:'cmenu' id:'sidebar-category' ttl:'86400'%]
+	[%CATEGORYMENU sortby:'sortorder,selected,name' show_empty:'1'%]
+		[%param header%]
+			<div class="card d-none d-md-block mb-2 h-25 d-inline-block" >
+				<div class="card-header"><h1 class="h2 mb-0" style="margin-left: 0px; color: orange; font-family: 'Oswald', sans-serif;"><i class="fas fa-tachometer-alt font-size-2px">&nbsp;Categories</i></h1></div>
+				<div class="list-group list-group-flush" role="navigation" aria-label="Category menu" >
+		[%/param%]
+		[%param *level_1%]
+			<div class="position-relative border-bottom [%if [@next_level@]%] dropdown dropdown-hover[%/if%]">
+				<a class="text-dark list-group-item list-group-item-action" href="[@url@]" style="height: auto; padding: 0px; padding-left: 10px; margin-bottom: 0px; padding-bottom: -5px; margin-bottom: 0px; font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;[@name@]</i></a>
+				[%if [@next_level@]%]
+					<ul class="dropdown-menu dropdown-menu-horizontal">[@next_level@]</ul>
+				[%/if%]
+			</div>
+		[%/param%]
+		[%param *level_2%]
+				<li class="[%if [@next_level@]%] dropdown dropdown-hover[%/if%]">
+					<a class="dropdown-item" href="[@url@]" style="font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;[@name@]</i></a>
+					[%if [@next_level@]%]
+						<ul class="dropdown-menu dropdown-menu-horizontal">[@next_level@]</ul>
+					[%/if%]
+				</li>
+		[%/param%]
+		[%param *level_3%]
+				<li><a class="dropdown-item" href="[@url@]" style="font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;[@name@]</i></a></li>
+		[%/param%]
+		[%param footer%]
+				</div>
+			</div>
+		[%/param%]
+	[%/CATEGORYMENU%]
+	[%/cache%]
+</aside>
+
+<div class="col-12 col-md-9" style="background-color: rgb(0, 111, 245);">
+

@@ -1,0 +1,568 @@
+<div class="container" style="background-color: gray;">
+<div class="row">
+<div class="col-12">
+<br/>
+  [%list type:'content' filter:'content_type=product-finder&content_level=1' sort:'sortorder,content_name' limit:'999'%]
+                    [%param *header%]
+                        [%site_value id:'footer_javascript'%]
+                            <script>
+                                $(document).ready(function(){
+                                    $.compatListInit({});
+                                    $(".compatibility_list").change(function() {
+                                        $.buildCompatList($(this));
+                                    });
+                                });
+                            </script>
+                        [%/site_value%]                
+                        <div id="compat_list" class="n-wrapper-form-control">
+                            <p class="product-finder-label">Product Finder</p>
+                            <select name="clist" id="clist" class="compatibility_list form-control">
+                                <option value="">Choose Options</option>
+                    [%/param%]
+                    [%param *body%]
+                        <option value="[@content_id@]">[@content_name@]</option>
+                    [%/param%]
+                    [%param *footer%]
+                            </select>
+                        </div>
+                    [%/param%]
+                [%/list%]
+       
+
+
+</div>
+</div>
+</div>
+
+
+
+<!--<div class="container" style="background-color: #CDDDD3;">
+<div class="row">
+<div class="col-12">
+
+[%list type:'content' filter:'content_type=product-finder&content_level=1' sort:'sortorder,content_name' limit:'999' %]
+                    [%param *header%]
+                        [%site_value id:'footer_javascript'%]
+                            <script>
+                                $(document).ready(function(){
+                                    $.compatListInit({});
+                                    $(".compatibility_list").change(function() {
+                                        $.buildCompatList($(this));
+                                    });
+                                });
+                            </script>
+                        [%/site_value%] 
+
+                        <div id="compat_list" class="n-wrapper-form-control">
+                        <p class="product-finder-label" style="color: black;">
+                        <span data-feather="search" style="top:5px; left: 5px; position: relative; color: black; "></span>&nbsp;&nbsp;Part Finder&nbsp;&nbsp;</p>
+                 		<select name="clist" id="clist" class="compatibility_list form-control" style="max-width: 100%; margin-left: -3px;">
+                                <option value="" >Tier 1</option>
+                        
+                    [%/param%]
+                [%param *body%]
+                <option value="[@content_id@]" style="max-width: 100%;">[@content_name@]</option>
+                    [%/param%]
+                    [%param *footer%]
+                            </select>
+                        </div>
+            [%/param%] 
+[%/list%]
+
+
+
+</div>
+</div>
+</div>-->
+
+[%load_template file:'cms/includes/sidebar-home.template.html'/%]
+  
+  <div class="bd-example d-none d-lg-block">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="https://www.chainsawspares.com.au/page/weekly-specials/"><img src="https://www.chainsawspares.com.au/assets/marketing/150.jpg" style="width: 100%; height: 496px;"  class="d-block w-100" alt="This weeks Specials, View Here"></a>
+        <div class="carousel-caption d-none d-md-block">
+          
+        </div>
+      </div>
+      <div class="carousel-item">
+        <a href="https://www.chainsawspares.com.au/assets/JJ-Catalogue-JAN19-Web.pdf"><img src="https://www.chainsawspares.com.au/assets/marketing/151.jpg" style="width: 100%; height: 496px;" class="d-block w-100" alt="Catalogue Out Now View Here"></a>
+        <div class="carousel-caption d-none d-md-block">
+          
+        </div>
+      </div>
+      <div class="carousel-item">
+        <a href="https://www.chainsawspares.com.au/page/weekly-specials/"><img src="https://www.chainsawspares.com.au/assets/marketing/150.jpg" style="width: 100%; height: 496px;" class="d-block w-100" alt="This Week Weekly Specials View Here"></a>
+        <div class="carousel-caption d-none d-md-block">
+          
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+</div>
+
+
+<div class="container d-none d-sm-block" style="background-color: #E5F3E5;">
+<div class="row">
+
+<div class="col-12"><!-- Nav tabs -->
+
+<ul class="nav nav-tabs">
+  <li class='nav-item'>
+    <a class='nav-link active' data-toggle='tab' href='#s1' style="font-family: 'Oswald', sans-serif;"><i class="fas fa-video font-size-2px">&nbsp;Multi-Media</i></a>
+  </li>
+  <li class='nav-item'>
+    <a class='nav-link ' data-toggle='tab' href='#s2' style="font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;Featured Products</i></a>
+   </li>
+   <li class='nav-item'>
+     <a class='nav-link ' data-toggle='tab' href='#s3' style="font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;New Arrivals</i></a>
+   </li>
+   <li class='nav-item'>
+     <a class='nav-link ' data-toggle='tab' href='#s4' style="font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;Popular Products</i></a>
+   </li>
+   <li class='nav-item'>
+     <a class='nav-link ' data-toggle='tab' href='#s5' style="font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;Product Categories</i></a>
+   </li><li class='nav-item'>
+     <a class='nav-link ' data-toggle='tab' href='#s6' style="font-family: 'Oswald', sans-serif;"><i class="fas fa-shipping-fast font-size-2px">&nbsp;Shipping Information</i></a>
+   </li>    
+</ul>
+
+<div class="tab-content"> <!-- Tab panes -->
+
+<div class='tab-pane container fade in show active' id='s1'>
+<h2 style="text-align: center; background-color: orange; color: white; font-family: 'Oswald', sans-serif;"><i class="fas fa-video font-size-2px">&nbsp;Multi-Media</i></h2>
+<div class="container">
+<div class="row justify-content-start">
+
+<div class="col-3 d-none d-lg-block">
+<div class="card mb-4 shadow-sm"><a href="https://www.chainsawspares.com.au/ebay_store_3/brushcutters-whipper-snippers/"><img alt="Brushcutters Whipper Snippers" class="card-img-top" src="https://www.chainsawspares.com.au/assets/full/MTCOMBO20.jpg" style="width: 100%; height: 100%;" title="Brushcutters Whipper Snippers" /></a><br/>
+<h2 style="padding: 3px;" style="font-family: 'Oswald', sans-serif;">62cc Multi Tool Power Head Only Pole Chainsaw Brush Cutter Petrol Trimmer</h2>
+
+<h4 align="left" class="card-text"><strong style="font-family: 'Oswald', sans-serif; margin-left: 3px;">Brushcutters Whipper Snippers</strong><a href="https://www.chainsawspares.com.au/ebay_store_3/brushcutters-whipper-snippers/"><br/><h3 style="text-align:left; font-family: 'Oswald', sans-serif; margin-left: 3px;">Explore</h3></a></h4>
+</div>
+
+
+</div>
+
+<div class="col-9"><!--This is the start of Home Main Contents -->
+<section aria-label="Main description" class="n-responsive-content" id="homepage-content">[@page_content@]
+</section>
+<!--This is the start of Home Main Contents -->
+</div>
+</div>
+<!--End of Home content Container -->
+</div>
+
+ </div>
+
+<div class='tab-pane container fade' id='s2'>
+<h2 style="text-align: center; background-color: orange; color: white; font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;Featured products</i></h2>
+[%if [@config:show_home_ads@]%]
+		[%advert type:'product' limit:'8' template:'' ad_group:''%]
+			[%param *header%]
+				<hr aria-hidden="true"/>
+				<h2 class="sr-only">Featured products</h2>
+
+				<section class="row products-row " aria-label="Featured products">
+			[%/param%]
+			[%param footer%]
+				</section>
+
+			[%/param%]
+			[%param *ifempty%]
+				[%random_products filter_category:'' template:'' limit:'8'%]
+					[%param *header%]
+						<hr aria-hidden="true"/>
+						<h2 class="sr-only">Featured products</h2>
+
+						<section class="row products-row" aria-label="Featured products">
+					[%/param%]
+					[%param *footer%]
+						</section>
+					[%/param%]
+				[%/random_products%]
+			[%/param%]
+		[%/advert%]
+	[%/if%]
+
+</div>
+
+<div class='tab-pane container fade' id='s3'>
+    
+<div class="container">
+<div class="row">
+<div class="col-12">
+<h2 style="text-align: center; background-color: orange; color: white; font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;New Arrivals</i></h2>
+[%thumb_list type:'products' template:'' sortby:'new_arrivals' filter_category:'0' limit:'8'%] [%param *header%]
+<div class="row">[%/param%] [%param *footer%]</div>
+[%/param%] [%/thumb_list%]
+</div>
+</div>
+</div>
+
+</div>
+
+<div class='tab-pane container fade' id='s4'>
+
+<div class="container">
+<div class="row">
+<div class="col-12">
+<h2 style="text-align: center; background-color: orange; color: white; font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;Popular Products</i></h2>
+[%thumb_list type:'products' template:'' sortby:'popular' filter_category:'0' limit:'8'%] [%param *header%]
+<div class="row">[%/param%] [%param *footer%]</div>
+[%/param%] [%/thumb_list%]
+</div>
+</div>
+</div>
+
+</div>
+<div class='tab-pane container fade' id='s5'>
+
+<h2 style="text-align: center; background-color: orange; color: white; font-family: 'Oswald', sans-serif;"><i class="fab fa-product-hunt font-size-2px">&nbsp;Product Categories</i></h2>
+<div class="container">
+<div class="row justify-content-start">
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="https://www.chainsawspares.com.au/ebay_store_3/brushcutters-whipper-snippers/"><img alt="Brushcutters Whipper Snippers" class="card-img-top" src="https://www.chainsawspares.com.au/assets/full/MTCOMBO2.jpg" style="width: 100%; height: 100%;" title="Brushcutters Whipper Snippers" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Brushcutters Whipper Snippers</strong><a href="https://www.chainsawspares.com.au/ebay_store_3/brushcutters-whipper-snippers/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/camping-fishing-hunting/"><img alt="Camping/Fishing/Hunting" class="card-img-top" src="http://images.jonoandjohno.com.au/home/camping.png" style="width: 100%; height: 100%;" title="Camping/Fishing/Hunting" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Camping/Fishing/Hunting</strong><a href="http://www.chainsawspares.com.au/camping-fishing-hunting/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-3"><!--Chainsaw Equipment-->
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/chainsaw-equipment/"><img alt="Chainsaw Equipment" class="card-img-top" src="http://images.jonoandjohno.com.au/home/chainsaw-equipment.png" style="width: 100%; height: 100%;" title="Chainsaw Equipment" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Chainsaw Equipment</strong><a href="http://www.chainsawspares.com.au/ebay_store_3/chainsaw-equipment/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-3"><!--Chainsaws-->
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/chainsaws/"><img alt="Chansaws" class="card-img-top" src="http://images.jonoandjohno.com.au/home/chainsaws.png" style="width: 100%; height: 100%;" title="Chansaws" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Chansaws</strong><a href="http://www.chainsawspares.com.au/ebay_store_3/chainsaws/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-3"><!--Fencing-->
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/fencing-equipment/"><img alt="Fencing Equipment" class="card-img-top" src="http://images.jonoandjohno.com.au/home/fencing1.png" style="width: 100%; height: 100%;" title="Fencing Equipment" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Fencing Equipment</strong><a href="http://www.chainsawspares.com.au/ebay_store_3/fencing-equipment/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://images.jonoandjohno.com.au/home/generators.png"><img alt="Generators" class="card-img-top" src="http://images.jonoandjohno.com.au/home/generators.png" style="width: 100%; height: 100%;" title="Generators" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Generators</strong><a href="https://www.chainsawspares.com.au/ebay_store_3/generators/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/honda-copy-engine-parts/"><img alt="Honda &amp; Copy Engine Parts" class="card-img-top" src="http://images.jonoandjohno.com.au/home/honda-copy-engine.png" style="width: 100%; height: 100%;" title="Honda &amp; Copy Engine Parts" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Honda &amp; Copy Engine Parts</strong><a href="http://www.chainsawspares.com.au/ebay_store_3/honda-copy-engine-parts/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/lawn-mower/"><img alt="Mower Equipment" class="card-img-top" src="http://images.jonoandjohno.com.au/home/lawn-mower.png" style="width: 100%; height: 100%;" title="Mower Equipment" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Mower Equipment</strong><a href="http://www.chainsawspares.com.au/ebay_store_3/lawn-mower/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/other/"><img alt="Other" class="card-img-top" src="http://images.jonoandjohno.com.au/home/other.png" style="width: 100%; height: 100%;" title="Other" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Other</strong><a href="http://www.chainsawspares.com.au/ebay_store_3/other/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/post-hole-diggers/"><img alt="Post Hole Diggers" class="card-img-top" src="http://images.jonoandjohno.com.au/home/post-hole-digger.png" style="width: 100%; height: 100%;" title="Post Hole Diggers" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Post Hole Diggers</strong><a href="http://www.chainsawspares.com.au/ebay_store_3/post-hole-diggers/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/power-tools/"><img alt="Power Tools" class="card-img-top" src="http://www.jonoandjohno.com.au/chainsawassets/images/template/BREAKER-SPINNER.jpg" style="width: 100%; height: 100%;" title="Power Tools" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Power Tools</strong><a href="http://www.chainsawspares.com.au/ebay_store_3/power-tools"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="https://www.chainsawspares.com.au/6.5hp-max-3800psi-high-pressure-washer-portable-wa"><img alt="Pressure Washers" class="card-img-top" src="http://www.jonoandjohno.com.au/chainsawassets/images/template/SCPW3000.jpg" style="width: 100%; height: 100%;" title="Pressure Washers" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Pressure Washers</strong><a href="https://www.chainsawspares.com.au/6.5hp-max-3800psi-high-pressure-washer-portable-wa"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/safety-equipment/"><img alt="Safety Equipment" class="card-img-top" src="http://images.jonoandjohno.com.au/home/safety-equipment.png" style="width: 100%; height: 100%;" title="Safety Equipment" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Safety Equipment</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/safety-equipment/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/sandblasting-equipment/"><img alt="Sand Blasting Equipment" class="card-img-top" src="http://images.jonoandjohno.com.au/home/sand-blasting.png" style="width: 100%; height: 100%;" title="Sand Blasting Equipment" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Sand Blasting Equipment</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/sandblasting-equipment/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/stationary-engines/"><img alt="Stationary Engines" class="card-img-top" src="http://images.jonoandjohno.com.au/home/stationary-engine.png" style="width: 100%; height: 100%;" title="Stationary Engines" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Stationary Engines</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/stationary-engines/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/water-pumps-hoses-fittings/"><img alt="Water Pumps, Hoses etc" class="card-img-top" src="http://images.jonoandjohno.com.au/home/water-pump.png" style="width: 100%; height: 100%;" title="Water Pumps, Hoses etc" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Water Pumps, Hoses etc</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/water-pumps-hoses-fittings/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-3">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/water-troughs/"><img alt="Water Troughs" class="card-img-top" src="http://images.jonoandjohno.com.au/home/water-throughs.png" style="width: 100%; height: 100%;" title="Water Troughs" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Water Troughs</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/water-troughs/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class='tab-pane container fade' id='s6'>
+
+<div class="container">
+<div class="row">
+
+<div class="col-12">
+<h2 style="text-align: center; background-color: orange; color: white; font-family: 'Oswald', sans-serif;"><i class="fas fa-shipping-fast font-size-2px" >&nbsp;Shipping Information</i></h2>
+<p style="font-family: 'Oswald', sans-serif;">Please refer to the postage chart for estimated delivery time for your state. We post your goods as quickly as we can. 99% of all purchases are freighted out of our warehouse within 24 hours.Most larger items are sent with e-Parcel. e-Parcel is an Australia Post parcel delivery service that requires a signature on delivery. If no-one is home at the time of delivery then a card will be left in your letter-box requesting that you pick the parcel up from your local post office.Many smaller items are sent in an envelope with stamps. These items are not tracked and will be left in your mailbox. Please understand that we have no control over the Australia Post mail network.&nbsp;<strong><a href="https://www.chainsawspares.com.au/page/shipping-information/">TNT Freight Details</a></strong></p>
+</div>
+
+</div>
+</div>
+
+</div>   
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<!--These are the Mobile View Start of Source Codes  -->
+
+<div class="container d-block d-sm-none">
+	<div class="row">
+		<div class="col-12">
+			<div class="bd-example">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="https://www.chainsawspares.com.au/page/weekly-specials/"><img src="https://www.chainsawspares.com.au/assets/marketing/150.jpg" class="d-block w-100" alt="This Week Specials Click to View"></a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <a href="https://www.chainsawspares.com.au/assets/JJ-Catalogue-JAN19-Web.pdf"><img src="https://www.chainsawspares.com.au/assets/marketing/151.jpg" class="d-block w-100" alt="Catalogue Out Now View Here"></a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <a href="https://www.chainsawspares.com.au/page/weekly-specials/"><img src="https://www.chainsawspares.com.au/assets/marketing/150.jpg" class="d-block w-100" alt="This Week Specials Click to View"></a>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+		</div>
+	</div>
+</div>
+
+<div class="container d-block d-sm-none">
+<h2 style="text-align: center; background-color: orange; color: white; font-family: 'Oswald', sans-serif;"><i class="fab fa-youtube font-size-2px">&nbsp;Product Videos</i></h2>
+<div class="row">
+<div class="col-12">
+<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" frameborder="0" scrolling="no" src="https://www.youtube.com/embed/AaJkWKsqjiU"></iframe></div>
+<p style="text-align: center;"><a href="https://www.chainsawspares.com.au/page/how-to-videos/chainsaw-videos/" style="font-family: 'Oswald', sans-serif;">Watch more on Chainsaw </a> & </span> <a href="https://www.chainsawspares.com.au/page/how-to-videos/weed-sprayers/" style="font-family: 'Oswald', sans-serif;">Weed Sprayer Videos</a></p>
+<!-- 4:3 aspect ratio -->
+</div>
+</div>
+</div>
+
+
+<div class="container d-block d-sm-none">
+<h2 style="text-align: center; background-color: orange; color: white; font-family: 'Oswald', sans-serif;"><i class="fas fa-tachometer-alt font-size-2px">&nbsp;Product Categories</i></h2>
+<div class="row justify-content-start">
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="https://www.chainsawspares.com.au/ebay_store_3/brushcutters-whipper-snippers/"><img alt="Brushcutters Whipper Snippers" class="card-img-top" src="https://www.chainsawspares.com.au/assets/full/MTCOMBO2.jpg" style="width: 100%; height: 100%;" title="Brushcutters Whipper Snippers" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Brushcutters Whipper Snippers</strong><br/><a href="https://www.chainsawspares.com.au/ebay_store_3/brushcutters-whipper-snippers/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/camping-fishing-hunting/"><img alt="Camping/Fishing/Hunting" class="card-img-top" src="http://images.jonoandjohno.com.au/home/camping.png" style="width: 100%; height: 100%;" title="Camping/Fishing/Hunting" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Camping/Fishing/Hunting</strong><br/><a href="http://www.chainsawspares.com.au/camping-fishing-hunting//"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-6"><!--Chainsaw Equipment-->
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/chainsaw-equipment/"><img alt="Chainsaw Equipment" class="card-img-top" src="http://images.jonoandjohno.com.au/home/chainsaw-equipment.png" style="width: 100%; height: 100%;" title="Chainsaw Equipment" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Chainsaw Equipment</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/chainsaw-equipment/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-6"><!--Chainsaws-->
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/chainsaws/"><img alt="Chansaws" class="card-img-top" src="http://images.jonoandjohno.com.au/home/chainsaws.png" style="width: 100%; height: 100%;" title="Chansaws" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Chansaws</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/chainsaws/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-6"><!--Fencing-->
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/fencing-equipment/"><img alt="Fencing Equipment" class="card-img-top" src="http://images.jonoandjohno.com.au/home/fencing1.png" style="width: 100%; height: 100%;" title="Fencing Equipment" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Fencing Equipment</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/fencing-equipment/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://images.jonoandjohno.com.au/home/generators.png"><img alt="Generators" class="card-img-top" src="http://images.jonoandjohno.com.au/home/generators.png" style="width: 100%; height: 100%;" title="Generators" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Generators</strong><br/><a href="https://www.chainsawspares.com.au/ebay_store_3/generators/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/honda-copy-engine-parts/"><img alt="Honda &amp; Copy Engine Parts" class="card-img-top" src="http://images.jonoandjohno.com.au/home/honda-copy-engine.png" style="width: 100%; height: 100%;" title="Honda &amp; Copy Engine Parts" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Honda &amp; Copy Engine Parts</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/honda-copy-engine-parts/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/lawn-mower/"><img alt="Mower Equipment" class="card-img-top" src="http://images.jonoandjohno.com.au/home/lawn-mower.png" style="width: 100%; height: 100%;" title="Mower Equipment" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Mower Equipment</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/lawn-mower/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/other/"><img alt="Other" class="card-img-top" src="http://images.jonoandjohno.com.au/home/other.png" style="width: 100%; height: 100%;" title="Other" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Other</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/other/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/post-hole-diggers/"><img alt="Post Hole Diggers" class="card-img-top" src="http://images.jonoandjohno.com.au/home/post-hole-digger.png" style="width: 100%; height: 100%;" title="Post Hole Diggers" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Post Hole Diggers</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/post-hole-diggers/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/power-tools/"><img alt="Power Tools" class="card-img-top" src="http://www.jonoandjohno.com.au/chainsawassets/images/template/BREAKER-SPINNER.jpg" style="width: 100%; height: 100%;" title="Power Tools" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Power Tools</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/power-tools/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="https://www.chainsawspares.com.au/6.5hp-max-3800psi-high-pressure-washer-portable-wa"><img alt="Pressure Washers" class="card-img-top" src="http://www.jonoandjohno.com.au/chainsawassets/images/template/SCPW3000.jpg" style="width: 100%; height: 100%;" title="Pressure Washers" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Pressure Washers</strong><br/><a href="https://www.chainsawspares.com.au/6.5hp-max-3800psi-high-pressure-washer-portable-wa"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/safety-equipment/"><img alt="Safety Equipment" class="card-img-top" src="http://images.jonoandjohno.com.au/home/safety-equipment.png" style="width: 100%; height: 100%;" title="Safety Equipment" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Safety Equipment</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/safety-equipment/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/sandblasting-equipment/"><img alt="Sand Blasting Equipment" class="card-img-top" src="http://images.jonoandjohno.com.au/home/sand-blasting.png" style="width: 100%; height: 100%;" title="Sand Blasting Equipment" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Sand Blasting Equipment</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/sandblasting-equipment//"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/stationary-engines/"><img alt="Stationary Engines" class="card-img-top" src="http://images.jonoandjohno.com.au/home/stationary-engine.png" style="width: 100%; height: 100%;" title="Stationary Engines" /></a><br/>
+	<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Stationary Engines</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/stationary-engines/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/water-pumps-hoses-fittings/"><img alt="Water Pumps, Hoses etc" class="card-img-top" src="http://images.jonoandjohno.com.au/home/water-pump.png" style="width: 100%; height: 100%;" title="Water Pumps, Hoses etc" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Water Pumps, Hoses etc</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/water-pumps-hoses-fittings/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+<div class="col-6">
+<div class="card mb-4 shadow-sm"><a href="http://www.chainsawspares.com.au/ebay_store_3/water-troughs/"><img alt="Water Troughs" class="card-img-top" src="http://images.jonoandjohno.com.au/home/water-throughs.png" style="width: 100%; height: 100%;" title="Water Troughs" /></a><br/>
+<p align="center" class="card-text"><strong style="font-family: 'Oswald', sans-serif;">Water Troughs</strong><br/><a href="http://www.chainsawspares.com.au/ebay_store_3/water-troughs/"><h3 style="text-align: center; font-family: 'Oswald', sans-serif;">Explore</h3></a></p>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+

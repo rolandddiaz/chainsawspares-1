@@ -1,0 +1,39 @@
+<div class="col-md-3" id="left-sidebar">
+
+[%CACHE type:'cmenu' id:'sidebar'%]
+	[%CATEGORYMENU sortby:'sortorder,selected,name' show_empty:'1'%]
+		[%param header%]
+			<div class="card d-none d-md-block mb-2 " style="background-color: #ffffff; border-radius: 3px; padding-top: -70px;">
+				<div class="card-header " style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 10px; padding-top: 10px; padding-left: 5px; padding-right: 5px;"><h1 class="h2 mb-0 " h2 style="color: #337AB7;">Categories</h1></div>
+				<div class="list-group list-group-flush" role="navigation" aria-label="Category menu">
+		[%/param%]
+		[%param *level_1%]
+			<div class="position-relative border-bottom [%if [@next_level@]%] dropdown dropdown-hover[%/if%] ">
+				<a class="text-dark list-group-item list-group-item-action" href="[@url@]" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 1px; padding-top: 1px; padding-left: 5px; padding-right: 5px; background-color: #f0f5f5; border-radius: 3px;">[@name@]</a>
+				[%if [@next_level@]%]
+					<ul class="dropdown-menu dropdown-menu-horizontal">[@next_level@]</ul>
+				[%/if%]
+			</div>
+		[%/param%]
+		[%param *level_2%]
+				<li class="[%if [@next_level@]%] dropdown dropdown-hover[%/if%]">
+					<a class="dropdown-item" href="[@url@]" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 1px; padding-top: 1px; padding-left: 5px; padding-right: 5px; background-color: #f0f5f5; border-radius: 3px;">[@name@]</a>
+					[%if [@next_level@]%]
+						<ul class="dropdown-menu dropdown-menu-horizontal">[@next_level@]</ul>
+					[%/if%]
+				</li>
+		[%/param%]
+		[%param *level_3%]
+				<li><a class="dropdown-item" href="[@url@]" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 1px; padding-top: 1px; padding-left: 5px; padding-right: 5px; background-color: #f0f5f5; border-radius: 3px;">[@name@]</a></li>
+		[%/param%]
+		[%param footer%]
+				</div>
+			</div>
+		[%/param%]
+	[%/CATEGORYMENU%]
+	[%/CACHE%]
+
+
+
+</div>
+<div class="col-md-9" style="width: 100%; margin-top: 0px;">

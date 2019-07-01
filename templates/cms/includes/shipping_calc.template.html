@@ -1,0 +1,42 @@
+<hr/>
+<div class="panel panel-default" id="shipbox">
+	<div class="panel-heading">
+		<h3 class="panel-title" style="color: white;">Calculate shipping for [%product sku:'[@sku@]'%][%param *body%]<strong style="color: white;">[@name@]</strong>[%/param%][%/product%]</h3>
+	</div>
+	<div class="panel-body">
+		<div class="row btn-stack">
+			<div class="col-xs-12 col-md-3">
+				<div class="form-group">
+					<label style="color: white;">Quantity</label>
+					<input type="number" name="input" id="ship_qty" value="1" class="form-control" placeholder="Qty">
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-3">
+				<div class="form-group">
+					<label style="color: white;">Country</label>
+					<select id="ship_country" class="form-control">
+						[%countries%]
+							[%PARAM *body%]
+								<option value="[@country_code@]" [%if [@country_code@] eq 'AU'%]selected[%/if%]>[@country_name@]</option>
+							[%END PARAM%]
+						[%END countries%]
+					</select>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-3">
+				<div class="form-group">
+					<label style="color: white;">Post code</label>
+					<input type="text" name="input" id="ship_zip" value="[@ship_zip@]" size="5" class="form-control" placeholder="Post Code">
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-3">
+				<div class="form-group">
+					<label>&nbsp;</label>
+					<button type="button" class="btn btn-block btn-primary" onclick="[%AJAX_SHIP_CALCULATOR inline:'1' loading_icon_id:'ship_loading' qty_input_id:'ship_qty' country_input_id:'ship_country' zip_input_id:'ship_zip' element_id:'ship_cost' if_na:'N/A' if_free:'FREE' ebtmpl_id:'[@form:ebay_list_id@]' %]<hr> <strong>[name]</strong> - [@config:MONEYSIGN@][cost] <br> <p>[desc]</p> [%/AJAX_SHIP_CALCULATOR%]">Calculate</button>
+				</div>
+			</div>
+		</div>
+	<div id="ship_cost" style="color: white;"></div>
+	<div id="ship_loading" style="display:none;position:relative; color: white;" ><i class='fa fa-refresh fa-spin' style="color: white; font-size: 14px;"></i></div>
+	</div>
+</div>

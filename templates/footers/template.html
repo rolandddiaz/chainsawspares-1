@@ -1,0 +1,157 @@
+	</div>
+</div>
+
+
+<div class="container-fluid" style="background-color: #1e2126;">
+<footer class="wrapper-footer">
+<div class="container" style="background-color: #1e2126; border: 1px; border-style: solid; border-color: #2c2c2d;">
+<div class="row"><div class="col-12"><hr aria-hidden="true" /></div></div>
+
+<div class="row">
+			<div class="col-12 col-md-8 d-none d-lg-block">
+				<nav class="row" aria-label="Footer menu">
+					[%cache type:'menu' id:'footer-content-menu' ttl:'86400'%]
+						[%menu id:'web_footer'%]
+							[%param *level_1%]
+								<div class="col-12 col-md-4 text-md-left">
+									<ul class="nav flex-column">
+										<li class="nav-item"><h4 class="nav-link py-0" style="color: white;"><i class="fas fa-info font-size-2px">&nbsp;[@name@]</i></h4></li>
+										[@next_level@]
+									</ul>
+								</div>
+							[%/param%]
+							[%param *level_2%]
+								<li class="nav-item"><a href="[@url@]" class="nav-link" style="color: white;"><i class="fas fa-long-arrow-alt-right font-size-2px">&nbsp;[@name@]</i></a></li>
+							[%/param%]
+						[%/menu%]
+					[%/cache%]
+				</nav>
+			</div>
+<div class="col-12 col-md-4 text-md-left">
+<h4 style="color: white; text-align: center;">Subscribe to our mailing list</h4>
+
+<form action="//jonoandjohno.us13.list-manage.com/subscribe/post?u=5efd03951a32cf62aa2ce2156&amp;id=f8fa207c6b" class="validate" id="mc-embedded-subscribe-form" method="post" name="mc-embedded-subscribe-form" novalidate="" role="form" target="_blank">
+<div class="form-group" id="mc_embed_signup_scroll">
+<div class="mc-field-group">
+<p style="text-align: center;"><input class="input-lg" id="mce-EMAIL" name="EMAIL" placeholder="Enter you Email Address" style="width: 100%; padding-bottom: 2px; text-align: center;" type="email" value="" /><br/><input class="btn btn-large" style=" align-items: center; margin-top: 3px;" type="submit" value="Subscribe Now!" /></p>
+</div>
+<div class="clear" id="mce-responses">
+<div class="response" id="mce-error-response" style="display:none">&nbsp;</div>
+<div class="response" id="mce-success-response" style="display:none">&nbsp;</div>
+</div>
+<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+<div aria-hidden="true" style="position: absolute; left: -5000px;"><input name="b_5efd03951a32cf62aa2ce2156_f8fa207c6b" tabindex="-1" type="text" value="" /></div>
+
+<div class="clear">&nbsp;</div>
+</div>
+</form>
+
+<ul class="nav list-social justify-content-center justify-content-md-start pt-2" itemscope itemtype="http://schema.org/Organization" role="contentinfo" aria-label="Social media">
+					<meta itemprop="url" content="[@config:home_url@]"/>
+					<meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png"/>
+					<meta itemprop="name" content="[@config:company_name@]"/>
+					<li class="nav-item px-1"><a href="[%url type:'page' id:'contact_us'/%]" target="_blank" title="Email us" rel="noopener" aria-label="Email us"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+					[%if [@config:facebook_account_id@]%]
+					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:facebook_account_id@]" target="_blank" title="[@config:company_name@] on Facebook" rel="noopener"><i class="fab fa-facebook text-facebook" aria-hidden="true"></i><span class="sr-only">Facebook</span></a></li>
+					[%/if%]
+					[%if [@config:twitter_account_id@]%]
+					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:twitter_account_id@]" target="_blank" title="[@config:company_name@] on Twitter" rel="noopener"><i class="fab fa-twitter text-twitter" aria-hidden="true"></i><span class="sr-only">Twitter</span></a></li>
+					[%/if%]
+					[%if [@config:googleplus_account_id@]%]
+					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:googleplus_account_id@]" target="_blank" title="[@config:company_name@] on Google Plus" rel="noopener"><i class="fab fa-google-plus text-google-plus" aria-hidden="true"></i><span class="sr-only">Google Plus</span></a></li>
+					[%/if%]
+					[%if [@config:youtube_account_id@]%]
+					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:youtube_account_id@]" target="_blank" title="[@config:company_name@] on Youtube" rel="noopener"><i class="fab fa-youtube text-youtube" aria-hidden="true"></i><span class="sr-only">Youtube</span></a></li>
+					[%/if%]
+					[%if [@config:instagram_account_id@]%]
+					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:instagram_account_id@]" target="_blank" title="[@config:company_name@] on Instagram" rel="noopener"><i class="fab fa-instagram text-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a></li>
+					[%/if%]
+					[%if [@config:pinterest_account_id@]%]
+					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:pinterest_account_id@]" target="_blank" title="[@config:company_name@] on Pinterest" rel="noopener"><i class="fab fa-pinterest text-pinterest" aria-hidden="true"></i><span class="sr-only">Pinterest</span></a></li>
+					[%/if%]
+					[%if [@config:tumblr_account_id@]%]
+					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:tumblr_account_id@]" target="_blank" title="[@config:company_name@] on Tumblr" rel="noopener"><i class="fab fa-tumblr text-tumblr" aria-hidden="true"></i><span class="sr-only">Tumblr</span></a></li>
+					[%/if%]
+					[%if [@config:linkedin_account_id@]%]
+					<li class="nav-item px-1"><a itemprop="sameAs" href="[@config:linkedin_account_id@]" target="_blank" title="[@config:company_name@] on Linkedin" rel="noopener"><i class="fab fa-linkedin-in text-linkedin" aria-hidden="true"></i><span class="sr-only">Linkedin</span></a></li>
+					[%/if%]
+				</ul>
+
+
+</div>
+</div>
+
+<div class="row d-block d-sm-none">
+	<div class="col-xs-12">
+		<p style="color: white;"><a href="mailto:sales@jonoandjohno.com.au">Email: sales@jonoandjohno.com.au</a> | <a href="tel:+61353030263">Phone: 0353 030 263</a></p>
+	</div>
+</div>
+
+
+
+		<div class="row"><div class="col-12"><hr aria-hidden="true"/></div></div>
+		<div class="row">
+			<div class="col-12 col-md-6 text-md-left d-none d-sm-block">
+				<br/>
+				[%checkout_pay_icons show_icon:'1' ignore_balance:'1'%]
+					[%param header%]
+						<ul class="list-inline d-flex flex-wrap" role="contentinfo" aria-label="Accepted payment methods">
+					[%/param%]
+					[%param *body%]
+							<li class="mr-1">
+								<div class="payment-icon-container">
+									<div class="payment-icon" style="background-image: url([@processor_icon_url@]); height: 30px;"><span class="sr-only">[@name@]</span></div>
+								</div>
+							</li>
+					[%/param%]
+					[%param *footer%]
+						</ul>
+					[%/param%]
+				[%/checkout_pay_icons%]
+
+			</div>
+			<div class="col-12 col-md-6 text-md-right d-none d-sm-block">
+			[%content_zone id:'afterpaybuttonfoot'%][%end content_zone%]
+			</div>
+
+			<div class="col-12">
+				<p class="small" data-test-id="address" style="text-align: center;"><strong style="color: white;">Copyright © [%format type:'date' format:'#Y'%]today[%/format%] [@config:company_name@].</strong> [%if [@config:show_platform_branding@]%]<a href="https://www.netohq.com" rel="noopener" target="_blank" title="Neto E-commerce Retail Management Platform">Online Store by Jono and Johno</a>[%/if%]<br />
+[%if [@config:company_abn@]%]<strong style="color: white;">[%if [@config:PRIMARY_ABN_LABEL@]%][@config:PRIMARY_ABN_LABEL@][%else%]ABN[%/if%]: [@config:company_abn@] </strong><br />
+[%/ if%] [%if [@config:company_poaddr@]%]<strong>Address:</strong> [@config:company_poaddr@][%/ if%]</p>
+
+			</div>
+
+		</div>
+	</div>
+</footer>
+
+</div>
+
+<div class="modal fade" id="termsModal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Terms &amp; Conditions</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body">[%content_zone id:'terms'/%]</div>
+			<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="privacyModal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Privacy Policy</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body">[%show_content id:'2'%][%param *body%][@content_description1@][%/param%][%/show_content%]</div>
+			<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+		</div>
+	</div>
+</div>
+<!-- Required Neto Scripts - DO NOT REMOVE -->
+[%load_template file:'footers/includes/scripts.template.html'/%]
+</body>
+</html>
